@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML User Data</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="userTable">
+        </tbody>
+    </table>
+
+    <script>
+        const xmlData = `
+        <Users>
+            <User>
+                <id>1</id>
+                <Name>John Doe</Name>
+                <Email>john.doe@example.com</Email>
+                <Role>Manager</Role>
+            </User>
+            <User>
+                <id>2</id>
+                <Name>Jane Smith</Name>
+                <Email>jane.smith@example.com</Email>
+                <Role>Developer</Role>
+            </User>
+            <User>
+                <id>3</id>
+                <Name>Emily Johnson</Name>
+                <Email>emily.johnson@example.com</Email>
+                <Role>Designer</Role>
+            </User>
+            <User>
+                <id>4</id>
+                <Name>Michael Brown</Name>
+                <Email>michael.brown@example.com</Email>
+                <Role>Tester</Role>
+            </User>
+        </Users>`;
+
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlData, "text/xml");
+        const users = xmlDoc.getElementsByTagName("User");
+
+        const userTable = document.getElementById("userTable");
+
+        for (let i = 0; i < users.length; i++) {
+            const name = users[i].getElementsByTagName("Name").childNodes.nodeValue;
+            const email = users[i].getElementsByTagName("Email").childNodes.nodeValue;
+
+            const row = document.createElement("tr");
+            const nameCell = document.createElement("td");
+            const emailCell = document.createElement("td");
+
+            nameCell.textContent = name;
+            emailCell.textContent = email;
+
+            row.appendChild(nameCell);
+            row.appendChild(emailCell);
+            userTable.appendChild(row);
+        }
+    </script>
+</body>
+</html>

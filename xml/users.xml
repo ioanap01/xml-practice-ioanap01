@@ -1,0 +1,26 @@
+<Users>
+  <User>
+    <id>1</id>
+    <Name>John Doe</Name>
+    <Email>john.doe@example.com</Email>
+    <Role>Manager</Role>
+  </User>
+  <User>
+    <id>2</id>
+    <Name>Jane Smith</Name>
+    <Email>jane.smith@example.com</Email>
+    <Role>Developer</Role>
+  </User>
+  <User>
+    <id>3</id>
+    <Name>Emily Johnson</Name>
+    <Email>emily.johnson@example.com</Email>
+    <Role>Designer</Role>
+  </User>
+  <User>
+    <id>4</id>
+    <Name>Michael Brown</Name>
+    <Email>michael.brown@example.com</Email>
+    <Role>Tester</Role>
+  </User>
+</Users>
